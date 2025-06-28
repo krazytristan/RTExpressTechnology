@@ -1,19 +1,31 @@
-  ScrollReveal().reveal('[data-sr-id]', {
-    origin: 'bottom',
-    distance: '40px',
-    duration: 1000,
-    easing: 'ease-in-out',
-    interval: 200
-  });
+// === SCROLL REVEAL ===
+ScrollReveal().reveal('[data-sr-id]', {
+  origin: 'bottom',
+  distance: '40px',
+  duration: 1000,
+  easing: 'ease-in-out',
+  interval: 200
+});
 
-  function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    const icon = document.getElementById('themeIcon');
-    icon.src = document.body.classList.contains('dark-mode')
-      ? 'https://cdn-icons-png.flaticon.com/512/6714/6714973.png'
-      : 'https://cdn-icons-png.flaticon.com/512/6714/6714978.png';
-  }
+// === DARK MODE ===
+function toggleDarkMode() {
+  document.body.classList.toggle('dark-mode');
+  const isDark = document.body.classList.contains('dark-mode');
+  document.getElementById('themeIcon').src = isDark
+    ? 'https://cdn-icons-png.flaticon.com/512/6714/6714973.png'
+    : 'https://cdn-icons-png.flaticon.com/512/6714/6714978.png';
 
+  // Save preference
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+// Apply dark mode on page load
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark-mode');
+  document.getElementById('themeIcon').src = 'https://cdn-icons-png.flaticon.com/512/6714/6714973.png';
+}
+
+// === CONTACT FORM ===
 const form = document.getElementById('contactForm');
 const success = document.getElementById('formSuccess');
 const error = document.getElementById('formError');
@@ -34,20 +46,19 @@ form.addEventListener('submit', async (e) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        Accept: 'application/json'
       },
       body: JSON.stringify(formObject)
     });
 
     if (response.ok) {
       success.classList.remove('hidden');
-      setTimeout(() => success.classList.add('hidden'), 3000);
       form.reset();
+      setTimeout(() => success.classList.add('hidden'), 3000);
     } else {
-      error.classList.remove('hidden');
-      setTimeout(() => error.classList.add('hidden'), 3000);
+      throw new Error();
     }
-  } catch (err) {
+  } catch {
     error.classList.remove('hidden');
     setTimeout(() => error.classList.add('hidden'), 3000);
   } finally {
@@ -56,70 +67,63 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
-// Newsletter form handler
+// === NEWSLETTER FORM ===
 const newsletterForm = document.getElementById('newsletterForm');
 const newsletterSuccess = document.getElementById('newsletterSuccess');
 const newsletterError = document.getElementById('newsletterError');
 const newsletterBtn = document.getElementById('newsletterBtn');
 
 newsletterForm.addEventListener('submit', async (e) => {
-e.preventDefault();
-newsletterSuccess.classList.add('hidden');
-newsletterError.classList.add('hidden');
-newsletterBtn.disabled = true;
-newsletterBtn.textContent = 'Subscribing...';
+  e.preventDefault();
+  newsletterSuccess.classList.add('hidden');
+  newsletterError.classList.add('hidden');
+  newsletterBtn.disabled = true;
+  newsletterBtn.textContent = 'Subscribing...';
 
-const formData = new FormData(newsletterForm);
-const dataObject = Object.fromEntries(formData.entries());
+  const formData = new FormData(newsletterForm);
+  const dataObject = Object.fromEntries(formData.entries());
 
-try {
-  const response = await fetch(newsletterForm.action, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json'
-    },
-    body: JSON.stringify(dataObject)
-  });
+  try {
+    const response = await fetch(newsletterForm.action, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify(dataObject)
+    });
 
-  if (response.ok) {
-    newsletterSuccess.classList.remove('hidden');
-    newsletterForm.reset();
-    setTimeout(() => newsletterSuccess.classList.add('hidden'), 3000);
-  } else {
+    if (response.ok) {
+      newsletterSuccess.classList.remove('hidden');
+      newsletterForm.reset();
+      setTimeout(() => newsletterSuccess.classList.add('hidden'), 3000);
+    } else {
+      throw new Error();
+    }
+  } catch {
     newsletterError.classList.remove('hidden');
     setTimeout(() => newsletterError.classList.add('hidden'), 3000);
+  } finally {
+    newsletterBtn.disabled = false;
+    newsletterBtn.textContent = 'Subscribe';
   }
-} catch (error) {
-  newsletterError.classList.remove('hidden');
-  setTimeout(() => newsletterError.classList.add('hidden'), 3000);
-} finally {
-  newsletterBtn.disabled = false;
-  newsletterBtn.textContent = 'Subscribe';
-}
 });
 
-ScrollReveal().reveal('[data-sr-id]', {
-origin: 'bottom',
-distance: '40px',
-duration: 1000,
-easing: 'ease-in-out',
-interval: 200
-});
+    ScrollReveal({ reset: true });
+    ScrollReveal().reveal('.reveal-left', {
+      origin: 'left',
+      distance: '60px',
+      duration: 1000,
+      easing: 'ease-in-out',
+      interval: 200,
+      mobile: true
+    });
 
-// Load dark mode on page load if previously set
-if (localStorage.getItem('theme') === 'dark') {
-document.body.classList.add('dark-mode');
-document.getElementById('themeIcon').src = 'https://cdn-icons-png.flaticon.com/512/6714/6714973.png';
-}
-
-function toggleDarkMode() {
-document.body.classList.toggle('dark-mode');
-const isDark = document.body.classList.contains('dark-mode');
-document.getElementById('themeIcon').src = isDark
-  ? 'https://cdn-icons-png.flaticon.com/512/6714/6714973.png'
-  : 'https://cdn-icons-png.flaticon.com/512/6714/6714978.png';
-
-// Save preference
-localStorage.setItem('theme', isDark ? 'dark' : 'light');
-}
+    ScrollReveal().reveal('.reveal-right', {
+      origin: 'right',
+      distance: '60px',
+      duration: 1000,
+      easing: 'ease-in-out',
+      interval: 200,
+      mobile: true
+    });
