@@ -12,7 +12,7 @@ function toggleDarkMode() {
   document.body.classList.toggle('dark-mode');
   const isDark = document.body.classList.contains('dark-mode');
   document.getElementById('themeIcon').src = isDark
-    ? 'https://icon-library.com/images/sun-icon-vector/sun-icon-vector-25.jpg'
+    ? 'https://cdn-icons-png.flaticon.com/512/6714/6714973.png'
     : 'https://cdn-icons-png.flaticon.com/512/6714/6714978.png';
 
   // Save preference
