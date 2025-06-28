@@ -1,0 +1,129 @@
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  .gradient {
+    background: linear-gradient(135deg, #1e1e2f, #6e44ff, #000000);
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease infinite;
+    position: relative;
+    overflow: hidden;
+  }
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .animated-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.25;
+    pointer-events: none;
+  }
+  /* Dark Mode Global Overrides */
+  body.dark-mode {
+  background-color: #0f172a;
+  color: #f1f5f9;
+  }
+
+  body.dark-mode section,
+  body.dark-mode header,
+  body.dark-mode footer {
+  background-color: #0f172a !important;
+  color: #f1f5f9 !important;
+  }
+
+  body.dark-mode input,
+  body.dark-mode textarea {
+  background-color: #1e293b;
+  color: #f1f5f9;
+  border-color: #334155;
+  }
+
+  body.dark-mode .text-gray-600,
+  body.dark-mode .text-gray-700,
+  body.dark-mode .text-gray-800 {
+  color: #f1f5f9 !important;
+  }
+
+  body.dark-mode .bg-white,
+  body.dark-mode .bg-gray-100,
+  body.dark-mode .bg-gray-50 {
+  background-color: #1e293b !important;
+  }
+
+  body.dark-mode .text-blue-600 {
+  color: #a78bfa !important;
+  }
+
+  body.dark-mode .shadow,
+  body.dark-mode .shadow-lg,
+  body.dark-mode .shadow-xl {
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+  }
+
+  .flip-card {
+  perspective: 1000px;
+  }
+  .flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  }
+  .group:hover .flip-card-inner {
+  transform: rotateY(180deg);
+  }
+  .flip-card-front,
+  .flip-card-back {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  top: 0;
+  left: 0;
+  }
+  .flip-card-back {
+  transform: rotateY(180deg);
+  }
+  .carousel-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    width: calc(200%);
+    animation: infiniteScroll 60s linear infinite;
+  }
+  .carousel-track img {
+    height: 3rem;
+    margin-right: 3rem;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+  }
+  .carousel-track img:hover {
+    filter: grayscale(0%) drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
+    transform: scale(1.1);
+  }
+  @keyframes infiniteScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  footer {
+    margin-top: auto;
+    background-color: #0f172a;
+    color: white;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+  }
