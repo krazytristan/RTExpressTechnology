@@ -109,21 +109,35 @@ newsletterForm.addEventListener('submit', async (e) => {
   }
 });
 
-    ScrollReveal({ reset: true });
-    ScrollReveal().reveal('.reveal-left', {
-      origin: 'left',
-      distance: '60px',
-      duration: 1000,
-      easing: 'ease-in-out',
-      interval: 200,
-      mobile: true
-    });
+// === HAMBURGER MENU TOGGLE ===
+// Toggle mobile menu visibility
+function toggleMenu() {
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+  
+  mobileMenu.classList.toggle('translate-x-full'); // Hide/show the menu
+  mobileMenuOverlay.classList.toggle('hidden'); // Show overlay
+  
+  // If menu is open, disable body scroll
+  document.body.style.overflow = mobileMenu.classList.contains('translate-x-full') ? '' : 'hidden';
+}
 
-    ScrollReveal().reveal('.reveal-right', {
-      origin: 'right',
-      distance: '60px',
-      duration: 1000,
-      easing: 'ease-in-out',
-      interval: 200,
-      mobile: true
-    });
+// === SCROLL REVEAL === (Left and Right)
+ScrollReveal({ reset: true });
+ScrollReveal().reveal('.reveal-left', {
+  origin: 'left',
+  distance: '60px',
+  duration: 1000,
+  easing: 'ease-in-out',
+  interval: 200,
+  mobile: true
+});
+
+ScrollReveal().reveal('.reveal-right', {
+  origin: 'right',
+  distance: '60px',
+  duration: 1000,
+  easing: 'ease-in-out',
+  interval: 200,
+  mobile: true
+});
