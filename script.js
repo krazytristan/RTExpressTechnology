@@ -1,143 +1,176 @@
-// === SCROLL REVEAL ===
+// === SCROLL REVEAL ENHANCED ===
+ScrollReveal({ reset: true });
 ScrollReveal().reveal('[data-sr-id]', {
   origin: 'bottom',
   distance: '40px',
   duration: 1000,
   easing: 'ease-in-out',
-  interval: 200
+  interval: 200,
+  mobile: true,
+  opacity: 0,
+  scale: 0.9
 });
 
-// === DARK MODE ===
+ScrollReveal().reveal('.reveal-left', {
+  origin: 'left',
+  distance: '60px',
+  duration: 1200,
+  easing: 'ease-in-out',
+  interval: 200,
+  opacity: 0,
+  scale: 0.9
+});
+
+ScrollReveal().reveal('.reveal-right', {
+  origin: 'right',
+  distance: '60px',
+  duration: 1200,
+  easing: 'ease-in-out',
+  interval: 200,
+  opacity: 0,
+  scale: 0.9
+});
+
+// === DARK MODE WITH ICON TRANSITION ===
 function toggleDarkMode() {
   document.body.classList.toggle('dark-mode');
   const isDark = document.body.classList.contains('dark-mode');
-  document.getElementById('themeIcon').src = isDark
+  const icon = document.getElementById('themeIcon');
+
+  icon.classList.add('animate-spin');
+  setTimeout(() => icon.classList.remove('animate-spin'), 600);
+
+  icon.src = isDark
     ? 'https://cdn-icons-png.flaticon.com/512/6714/6714973.png'
     : 'https://cdn-icons-png.flaticon.com/512/6714/6714978.png';
 
-  // Save preference
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 }
 
-// Apply dark mode on page load
-if (localStorage.getItem('theme') === 'dark') {
-  document.body.classList.add('dark-mode');
-  document.getElementById('themeIcon').src = 'https://cdn-icons-png.flaticon.com/512/6714/6714973.png';
-}
+// Apply theme on load
+window.addEventListener('DOMContentLoaded', () => {
+  const icon = document.getElementById('themeIcon');
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    icon.src = 'https://cdn-icons-png.flaticon.com/512/6714/6714973.png';
+  }
+});
 
-// === CONTACT FORM ===
-const form = document.getElementById('contactForm');
-const success = document.getElementById('formSuccess');
-const error = document.getElementById('formError');
+// === CONTACT FORM ENHANCED ===
+const contactForm = document.getElementById('contactForm');
+const contactSuccess = document.getElementById('formSuccess');
+const contactError = document.getElementById('formError');
 const submitBtn = document.getElementById('submitBtn');
 
-form.addEventListener('submit', async (e) => {
+contactForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  success.classList.add('hidden');
-  error.classList.add('hidden');
+  contactSuccess.classList.add('hidden');
+  contactError.classList.add('hidden');
   submitBtn.disabled = true;
   submitBtn.textContent = 'Sending...';
 
-  const formData = new FormData(form);
-  const formObject = Object.fromEntries(formData.entries());
+  const formData = new FormData(contactForm);
+  const payload = Object.fromEntries(formData.entries());
 
   try {
-    const response = await fetch(form.action, {
+    const res = await fetch(contactForm.action, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
-      body: JSON.stringify(formObject)
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload)
     });
 
-    if (response.ok) {
-      success.classList.remove('hidden');
-      form.reset();
-      setTimeout(() => success.classList.add('hidden'), 3000);
+    if (res.ok) {
+      contactSuccess.classList.remove('hidden');
+      contactForm.reset();
+      setTimeout(() => contactSuccess.classList.add('hidden'), 3000);
     } else {
       throw new Error();
     }
   } catch {
-    error.classList.remove('hidden');
-    setTimeout(() => error.classList.add('hidden'), 3000);
+    contactError.classList.remove('hidden');
+    setTimeout(() => contactError.classList.add('hidden'), 3000);
   } finally {
     submitBtn.disabled = false;
     submitBtn.textContent = 'Send Message';
   }
 });
 
-// === NEWSLETTER FORM ===
+// === NEWSLETTER FORM ENHANCED ===
 const newsletterForm = document.getElementById('newsletterForm');
-const newsletterSuccess = document.getElementById('newsletterSuccess');
-const newsletterError = document.getElementById('newsletterError');
-const newsletterBtn = document.getElementById('newsletterBtn');
+const newsSuccess = document.getElementById('newsletterSuccess');
+const newsError = document.getElementById('newsletterError');
+const newsBtn = document.getElementById('newsletterBtn');
 
 newsletterForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  newsletterSuccess.classList.add('hidden');
-  newsletterError.classList.add('hidden');
-  newsletterBtn.disabled = true;
-  newsletterBtn.textContent = 'Subscribing...';
+  newsSuccess.classList.add('hidden');
+  newsError.classList.add('hidden');
+  newsBtn.disabled = true;
+  newsBtn.textContent = 'Subscribing...';
 
-  const formData = new FormData(newsletterForm);
-  const dataObject = Object.fromEntries(formData.entries());
+  const data = new FormData(newsletterForm);
+  const json = Object.fromEntries(data.entries());
 
   try {
-    const response = await fetch(newsletterForm.action, {
+    const res = await fetch(newsletterForm.action, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
-      body: JSON.stringify(dataObject)
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(json)
     });
 
-    if (response.ok) {
-      newsletterSuccess.classList.remove('hidden');
+    if (res.ok) {
+      newsSuccess.classList.remove('hidden');
       newsletterForm.reset();
-      setTimeout(() => newsletterSuccess.classList.add('hidden'), 3000);
+      setTimeout(() => newsSuccess.classList.add('hidden'), 3000);
     } else {
       throw new Error();
     }
   } catch {
-    newsletterError.classList.remove('hidden');
-    setTimeout(() => newsletterError.classList.add('hidden'), 3000);
+    newsError.classList.remove('hidden');
+    setTimeout(() => newsError.classList.add('hidden'), 3000);
   } finally {
-    newsletterBtn.disabled = false;
-    newsletterBtn.textContent = 'Subscribe';
+    newsBtn.disabled = false;
+    newsBtn.textContent = 'Subscribe';
   }
 });
 
-// === HAMBURGER MENU TOGGLE ===
-// Toggle mobile menu visibility
+// === MOBILE MENU TOGGLE ===
 function toggleMenu() {
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-  
-  mobileMenu.classList.toggle('translate-x-full'); // Hide/show the menu
-  mobileMenuOverlay.classList.toggle('hidden'); // Show overlay
-  
-  // If menu is open, disable body scroll
-  document.body.style.overflow = mobileMenu.classList.contains('translate-x-full') ? '' : 'hidden';
+  const menu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('mobileMenuOverlay');
+  menu.classList.toggle('translate-x-full');
+  overlay.classList.toggle('hidden');
+  document.body.style.overflow = menu.classList.contains('translate-x-full') ? '' : 'hidden';
 }
+// Counter animation for impact section
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll('.counter');
+  const options = { threshold: 0.5 };
 
-// === SCROLL REVEAL === (Left and Right)
-ScrollReveal({ reset: true });
-ScrollReveal().reveal('.reveal-left', {
-  origin: 'left',
-  distance: '60px',
-  duration: 1000,
-  easing: 'ease-in-out',
-  interval: 200,
-  mobile: true
-});
+  const animateCounter = (counter) => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const increment = target / 100;
 
-ScrollReveal().reveal('.reveal-right', {
-  origin: 'right',
-  distance: '60px',
-  duration: 1000,
-  easing: 'ease-in-out',
-  interval: 200,
-  mobile: true
+      if (count < target) {
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(updateCount, 20);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCount();
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+
+  counters.forEach(counter => observer.observe(counter));
 });

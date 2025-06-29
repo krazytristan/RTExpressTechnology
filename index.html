@@ -18,12 +18,12 @@
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <h1 class="text-2xl font-bold text-blue-600 tracking-wide hover:scale-105 transition-transform duration-300">RT EXPRESS <span class="text-gray-700">TECHNOLOGY</span></h1>
   
-    <!-- Dark Mode Toggle -->
-  <div class="fixed buttom-4 right-12 z-50">
-    <button onclick="toggleDarkMode()" class="p-2 rounded-full transition">
-      <img id="themeIcon" src="https://cdn-icons-png.flaticon.com/512/6714/6714978.png" class="w-8 h-8" alt="Toggle theme" />
-    </button>
-  </div>
+<!-- Dark Mode Toggle -->
+<div class="fixed bottom-3 right-12 z-50">
+  <button onclick="toggleDarkMode()" class="shadow-md transition duration-300">
+    <img id="themeIcon" src="https://cdn-icons-png.flaticon.com/512/1164/1164954.png" class="w-7 h-7" alt="Theme Toggle Icon" />
+  </button>
+</div>
 
     <!-- Mobile Hamburger Icon -->
     <div class="md:hidden flex items-center" id="hamburgerIcon" onclick="toggleMenu()">
@@ -72,16 +72,16 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="gradient text-white py-24 relative overflow-hidden">
-    <div class="animated-lines">
-      <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_bhw1ul4g.json" background="transparent" speed="0.5" loop autoplay style="width: 100%; height: 100%;"></lottie-player>
-    </div>
-    <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
-      <h2 class="text-5xl font-extrabold mb-4 animate-pulse drop-shadow-lg">Empowering Digital Transformation</h2>
-      <p class="text-lg mb-6 drop-shadow">Custom software, smart systems, and scalable solutions for your business.</p>
-      <a href="#contact" class="hero-button">Let’s Talk</a>
-    </div>
-  </section>
+<section class="gradient text-white py-24 relative overflow-hidden">
+  <div class="animated-lines">
+    <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_bhw1ul4g.json" background="transparent" speed="0.5" loop autoplay style="width: 100%; height: 100%;"></lottie-player>
+  </div>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
+    <h2 class="text-5xl font-extrabold mb-4 animate-pulse drop-shadow-lg hero-fade hero-fade-delay-1">Empowering Digital Transformation</h2>
+    <p class="text-lg mb-6 drop-shadow hero-fade hero-fade-delay-2">Custom software, smart systems, and scalable solutions for your business.</p>
+    <a href="#contact" class="hero-button hero-fade hero-fade-delay-3">Let’s Talk</a>
+  </div>
+</section>
 
 <!-- About Section -->
 <section id="about" class="py-20 bg-white dark:bg-gray-900 relative overflow-hidden">
@@ -309,6 +309,72 @@
     <p id="newsletterError" class="mt-4 text-red-600 hidden">Something went wrong. Please try again.</p>
   </div>
 </section>
+
+  <!-- Impact Counter Section -->
+  <section id="impact" class="py-20 bg-gray-100 text-center">
+    <div class="max-w-5xl mx-auto px-4">
+      <h3 class="text-4xl font-bold mb-10">Our Impact</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div>
+          <h4 class="text-5xl font-bold text-blue-600 counter" data-target="120">0</h4>
+          <p class="text-gray-700 mt-2">Projects Completed</p>
+        </div>
+        <div>
+          <h4 class="text-5xl font-bold text-blue-600 counter" data-target="95">0</h4>
+          <p class="text-gray-700 mt-2">Happy Clients</p>
+        </div>
+        <div>
+          <h4 class="text-5xl font-bold text-blue-600 counter" data-target="0">0</h4>
+          <p class="text-gray-700 mt-2">Years Experience</p>
+        </div>
+        <div>
+          <h4 class="text-5xl font-bold text-blue-600 counter" data-target="2">0</h4>
+          <p class="text-gray-700 mt-2">Team Members</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h3 class="text-4xl font-bold text-center mb-10">Gallery</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <img src="https://via.placeholder.com/300x200?text=Event+1" class="rounded-lg shadow-md" />
+        <img src="https://via.placeholder.com/300x200?text=Event+2" class="rounded-lg shadow-md" />
+        <img src="https://via.placeholder.com/300x200?text=Event+3" class="rounded-lg shadow-md" />
+        <img src="https://via.placeholder.com/300x200?text=Event+4" class="rounded-lg shadow-md" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="py-20 bg-gray-50 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h3 class="text-4xl font-bold mb-6">Our Certifications</h3>
+      <p class="mb-8 text-gray-600">Accredited by top industry organizations</p>
+      <div class="flex flex-wrap justify-center gap-6">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/ISO_Logo.svg" alt="ISO" class="h-16" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Cisco_logo_blue_2016.svg" alt="Cisco" class="h-16" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/CompTIA_Logo.svg" alt="CompTIA" class="h-16" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section id="tech-stack" class="py-20 bg-gray-100 text-center">
+    <div class="max-w-5xl mx-auto px-4">
+      <h3 class="text-4xl font-bold mb-10">Tech We Use</h3>
+      <div class="flex flex-wrap justify-center gap-6 items-center">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React" class="h-12">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js" class="h-12">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Csharp_Logo.png" alt="C#" class="h-12">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg" alt="C" class="h-12">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Ruby_logo.svg" alt="Ruby" class="h-12">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript" class="h-12">
+      </div>
+    </div>
+  </section>
 
 <!-- Contact Section -->
 <section id="contact" class="py-20 bg-gray-100">
