@@ -24,7 +24,7 @@ textarea {
 nav {
   display: flex;
   justify-content: space-between;
-  align-items: justify;
+  align-items: center;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -32,7 +32,7 @@ nav {
 nav .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #6e44ff;
+  color: #4f46e5;
 }
 nav ul {
   list-style: none;
@@ -41,7 +41,7 @@ nav ul {
 }
 nav ul li a {
   font-weight: 500;
-  color: #1f2937;
+  color: #1e293b;
   position: relative;
   padding: 0.5rem 0;
   transition: color 0.3s ease;
@@ -59,7 +59,7 @@ nav ul li a::after {
   transition: transform 0.3s ease;
 }
 nav ul li a:hover {
-  color: #6e44ff;
+  color: #4f46e5;
 }
 nav ul li a:hover::after {
   transform: scaleX(1);
@@ -78,7 +78,7 @@ nav .menu-overlay {
   background: none;
   border: none;
   font-size: 1.5rem;
-  color: #6e44ff;
+  color: #4f46e5;
   cursor: pointer;
 }
 @media (max-width: 768px) {
@@ -124,7 +124,7 @@ nav .menu-overlay {
   opacity: 0;
 }
 .hero-button {
-  background: black;
+  background: #1e293b;
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
@@ -133,13 +133,13 @@ nav .menu-overlay {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .hero-button:hover {
-  background: purple;
+  background: #4f46e5;
   transform: scale(1.05);
 }
 
 /* Gradient Background */
 .gradient {
-  background: linear-gradient(135deg, #1e1e2f, #6e44ff, #000000);
+  background: linear-gradient(135deg, #1e1e2f, #4f46e5, #000000);
   background-size: 200% 200%;
   animation: gradientShift 10s ease infinite;
   position: relative;
@@ -167,7 +167,7 @@ nav .menu-overlay {
 /* About Section */
 #about {
   background: #ffffff;
-  color: #1f2937;
+  color: #1e293b;
 }
 .about-block,
 .reveal-left,
@@ -175,7 +175,7 @@ nav .menu-overlay {
   padding: 2rem;
   margin-bottom: 2rem;
   border-radius: 1rem;
-  background: #f9f9f9;
+  background: #f1f5f9;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   text-align: left;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -189,9 +189,9 @@ nav .menu-overlay {
 .about-block h4,
 .reveal-left h4,
 .reveal-right h4 {
-  color: #2563eb;
+  color: #4f46e5;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 800;
   margin-bottom: 1rem;
 }
 .about-block p,
@@ -200,7 +200,7 @@ nav .menu-overlay {
 .reveal-right p,
 .reveal-left ul,
 .reveal-right ul {
-  color: #374151;
+  color: #64748b;
   font-size: 1rem;
   line-height: 1.75rem;
 }
@@ -401,10 +401,6 @@ p {
   border-radius: 9999px;
   margin: 0.25rem;
 }
-.dark .tag {
-  background: #334155;
-  color: #e0e7ff;
-}
 
 /* Responsive Video */
 .aspect-w-16.aspect-h-9 {
@@ -418,72 +414,79 @@ p {
   width: 100%; height: 100%;
 }
 
-/* Dark Mode */
-body.dark-mode {
-  background: #0f172a;
-  color: #f1f5f9;
-}
-body.dark-mode section,
-body.dark-mode header,
-body.dark-mode footer,
-body.dark-mode .about-block,
-body.dark-mode .reveal-left,
-body.dark-mode .reveal-right {
-  background: #1f2937;
-  color: #f3f4f6;
-}
-body.dark-mode input,
-body.dark-mode textarea,
-body.dark-mode select {
-  background: #1e293b;
-  color: #f1f5f9;
-  border-color: #334155;
-}
-body.dark-mode #themeIcon {
-  background: #1e293b;
-  border-radius: 50%;
-  padding: 6px;
-  filter: invert(1) hue-rotate(180deg) saturate(150%) brightness(1.2);
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
-}
-/* Light Mode Default (already handled likely) */
-.service-card {
+/* Cards */
+.service-card,
+.testimonial-card {
   background-color: white;
   color: #1f2937;
 }
-
-/* Dark Mode Fix */
-body.dark-mode .service-card {
-  background-color: #1e293b;
-  color: #f1f5f9;
+@keyframes gradientBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-body.dark-mode .service-card h3,
-body.dark-mode .service-card p {
-  color: #f1f5f9;
-}
-body.dark-mode .text-gray-700 {
-  color: #f1f5f9 !important;
-}
-body.dark-mode .about-block,
-body.dark-mode .feature-card,
-body.dark-mode .service-item {
-  background-color: #1e293b;
-  color: #f3f4f6;
-}
-/* Default Light Mode */
-.testimonial-card {
-  background-color: #f3f4f6; /* or your current color */
-  color: #1f2937;
+.animated-border {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: 1rem;
 }
 
-/* Dark Mode Fix */
-body.dark-mode .testimonial-card {
-  background-color: #1e293b;
-  color: #f3f4f6;
+.animated-border::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(270deg, #8e2de2, #4a00e0, #00c6ff, #ff6ec4);
+  background-size: 600% 600%;
+  animation: gradientBorder 6s ease infinite;
+  border-radius: inherit;
+  padding: 2px;
+
+  /* Gradient border masking technique */
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+}
+@keyframes gradientBorder {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-body.dark-mode .testimonial-card h4,
-body.dark-mode .testimonial-card p {
-  color: #f3f4f6;
+.animated-border {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: 1rem; /* Rounded corners */
+}
+
+.animated-border::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(270deg, #8e2de2, #4a00e0, #00c6ff, #ff6ec4);
+  background-size: 600% 600%;
+  animation: gradientBorder 6s ease infinite;
+  border-radius: inherit;
+  padding: 2px;
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
 }
