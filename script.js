@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", () => {
     scrollToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
   });
+
   scrollToTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     navMenu.classList.toggle("show");
     menuOverlay.classList.toggle("show");
   });
+
   menuOverlay.addEventListener("click", () => {
     navMenu.classList.remove("show");
     menuOverlay.classList.remove("show");
@@ -39,7 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const applyTheme = (theme) => {
     document.body.classList.toggle("dark-mode", theme === "dark");
-    themeIcon.src = theme === "dark" ? "https://cdn-icons-png.flaticon.com/512/581/581601.png" : "https://cdn-icons-png.flaticon.com/512/979/979585.png";
+    themeIcon.src = theme === "dark" 
+      ? "https://cdn-icons-png.flaticon.com/512/1164/1164960.png" // dark icon
+      : "https://cdn-icons-png.flaticon.com/512/1164/1164954.png"; // light icon
   };
 
   const storedTheme = localStorage.getItem("theme");
@@ -56,12 +60,13 @@ document.addEventListener("DOMContentLoaded", () => {
   forms.forEach((form) => {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      form.querySelector("button[type='submit']").disabled = true;
+      const submitButton = form.querySelector("button[type='submit']");
+      submitButton.disabled = true;
 
       setTimeout(() => {
         alert("Message sent successfully!");
         form.reset();
-        form.querySelector("button[type='submit']").disabled = false;
+        submitButton.disabled = false;
       }, 1000);
     });
   });
@@ -102,6 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
     el.style.animation = `fadeInUp 1s ease forwards ${index * 0.3}s`;
   });
 });
+
 // === Mobile Menu Toggle ===
 function toggleMenu() {
   const menu = document.getElementById("mobileMenu");

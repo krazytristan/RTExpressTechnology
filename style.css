@@ -5,9 +5,11 @@ html {
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: none;
 }
+
 body::-webkit-scrollbar {
   display: none;
 }
+
 body,
 section,
 header,
@@ -26,10 +28,12 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.25;
   margin-bottom: 1rem;
 }
+
 p {
   margin-bottom: 1rem;
   font-size: 1rem;
 }
+
 @media (max-width: 768px) {
   h1 { font-size: 1.75rem; }
   h2 { font-size: 1.5rem; }
@@ -40,16 +44,18 @@ p {
 nav {
   display: flex;
   justify-content: space-between;
-  align-items: justify;
+  align-items: center; /* Changed from 'justify' to 'center' */
   position: sticky;
   top: 0;
   z-index: 100;
 }
+
 nav .logo {
   font-size: 1.5rem;
   font-weight: 700;
   color: #6e44ff;
 }
+
 nav ul {
   list-style: none;
   display: flex;
@@ -57,6 +63,7 @@ nav ul {
   margin: 0;
   padding: 0;
 }
+
 nav ul li a {
   font-weight: 500;
   color: #1f2937;
@@ -64,6 +71,7 @@ nav ul li a {
   padding: 0.5rem 0;
   transition: color 0.3s ease;
 }
+
 nav ul li a::after {
   content: '';
   position: absolute;
@@ -76,13 +84,16 @@ nav ul li a::after {
   transform-origin: right;
   transition: transform 0.3s ease;
 }
+
 nav ul li a:hover {
   color: #6e44ff;
 }
+
 nav ul li a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
+
 nav .menu-overlay {
   display: none;
   position: fixed;
@@ -93,6 +104,7 @@ nav .menu-overlay {
   background: rgba(0, 0, 0, 0.7);
   z-index: 99;
 }
+
 .menu-toggle {
   display: none;
   background: none;
@@ -117,12 +129,15 @@ nav .menu-overlay {
     border-radius: 0.5rem;
     z-index: 101;
   }
+
   nav ul.show {
     display: flex;
   }
+
   .menu-toggle {
     display: block;
   }
+
   nav .menu-overlay.show {
     display: block;
   }
@@ -133,12 +148,14 @@ nav .menu-overlay {
   from { transform: translateY(40px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+
 .hero-button,
 .gradient h2,
 .gradient p {
   opacity: 0;
   animation: fadeInUp 1.2s ease forwards;
 }
+
 .gradient h2 { animation-delay: 0.2s; }
 .gradient p { animation-delay: 0.4s; }
 
@@ -153,6 +170,7 @@ nav .menu-overlay {
   transition: background 0.3s, transform 0.2s;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 .hero-button:hover {
   background: purple;
   transform: scale(1.05);
@@ -166,6 +184,7 @@ nav .menu-overlay {
   position: relative;
   overflow: hidden;
 }
+
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -181,10 +200,12 @@ nav .menu-overlay {
   height: 100%;
   pointer-events: none;
 }
+
 .animated-lines {
   z-index: 0;
   opacity: 0.25;
 }
+
 .stars-bg {
   z-index: -1;
   opacity: 0.2;
@@ -196,6 +217,7 @@ nav .menu-overlay {
   background: #fff;
   color: #1f2937;
 }
+
 .about-block,
 .reveal-left,
 .reveal-right {
@@ -206,12 +228,14 @@ nav .menu-overlay {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .about-block:hover,
 .reveal-left:hover,
 .reveal-right:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
+
 .about-block h4,
 .reveal-left h4,
 .reveal-right h4 {
@@ -220,6 +244,7 @@ nav .menu-overlay {
   font-weight: 600;
   margin-bottom: 1rem;
 }
+
 .about-block p,
 .about-block ul,
 .reveal-left p,
@@ -236,6 +261,7 @@ nav .menu-overlay {
   perspective: 1000px;
   cursor: pointer;
 }
+
 .flip-card-inner {
   position: relative;
   width: 100%;
@@ -243,9 +269,11 @@ nav .menu-overlay {
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
+
 .group:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
+
 .flip-card-front,
 .flip-card-back {
   position: absolute;
@@ -256,6 +284,7 @@ nav .menu-overlay {
   top: 0;
   left: 0;
 }
+
 .flip-card-back {
   transform: rotateY(180deg);
 }
@@ -266,21 +295,25 @@ nav .menu-overlay {
   overflow: hidden;
   padding: 1rem 0;
 }
+
 .carousel-track {
   display: flex;
   width: 200%;
   animation: infiniteScroll 60s linear infinite;
 }
+
 .carousel-track img {
   height: 3rem;
   margin-right: 3rem;
   filter: grayscale(100%);
   transition: 0.3s ease;
 }
+
 .carousel-track img:hover {
   filter: grayscale(0%) drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
   transform: scale(1.1);
 }
+
 @keyframes infiniteScroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -300,6 +333,7 @@ nav .menu-overlay {
   z-index: 1000;
   transition: transform 0.3s, opacity 0.3s;
 }
+
 #scrollToTopBtn:hover {
   transform: scale(1.1);
 }
@@ -318,9 +352,11 @@ footer {
   flex-direction: column;
   justify-content: center;
 }
+
 footer p {
   margin: 0.25rem 0;
 }
+
 @media (max-width: 768px) {
   footer {
     font-size: 0.8rem;
@@ -343,17 +379,13 @@ select {
   background: #f9fafb;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
+
 input:focus,
 textarea:focus,
 select:focus {
   border-color: #6e44ff;
   outline: none;
   box-shadow: 0 0 0 2px rgba(110, 68, 255, 0.3);
-}
-#careers form input,
-#careers form textarea {
-  background: #f9fafb;
-  transition: border-color 0.3s;
 }
 
 /* ===== Utility Buttons ===== */
@@ -365,15 +397,18 @@ select:focus {
   font-weight: 600;
   transition: background 0.3s, transform 0.2s;
 }
+
 .btn:hover {
   background: #5b3ce6;
   transform: translateY(-2px);
 }
+
 .btn-outline {
   background: transparent;
   color: #6e44ff;
   border: 2px solid #6e44ff;
 }
+
 .btn-outline:hover {
   background: #6e44ff;
   color: white;
@@ -385,19 +420,23 @@ select:focus {
   max-width: 1280px;
   margin: 0 auto;
 }
+
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 }
+
 .img-card {
   border-radius: 1rem;
   overflow: hidden;
   transition: transform 0.3s;
 }
+
 .img-card:hover {
   transform: scale(1.02);
 }
+
 .tag {
   display: inline-block;
   background: #e5e7eb;
@@ -407,22 +446,26 @@ select:focus {
   border-radius: 9999px;
   margin: 0.25rem;
 }
+
 .aspect-w-16.aspect-h-9 {
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
 }
+
 .aspect-w-16.aspect-h-9 iframe {
   position: absolute;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
 }
+
 .reveal {
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.8s ease-out;
 }
+
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
@@ -480,6 +523,7 @@ body.dark-mode .btn-outline {
   border-color: #a78bfa;
   color: #a78bfa;
 }
+
 body.dark-mode .btn-outline:hover {
   background-color: #a78bfa;
   color: #0f172a;
@@ -497,6 +541,7 @@ body.dark-mode nav ul {
 body.dark-mode nav ul li a {
   color: #f1f5f9;
 }
+
 body.dark-mode nav ul li a:hover {
   color: #a78bfa;
 }
@@ -505,7 +550,7 @@ body.dark-mode .hero-button {
   background: #f1f5f9;
   color: #0f172a;
 }
+
 body.dark-mode .hero-button:hover {
   background: #a78bfa;
 }
-
