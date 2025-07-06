@@ -483,3 +483,148 @@ body.dark-mode #about p {
   background-color: #1f2937;
   color: #f3f4f6;
 }
+/* Typography Scaling */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+@media (max-width: 768px) {
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+}
+
+/* Section Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Modern Form Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  background-color: #f9fafb;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #6e44ff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(110, 68, 255, 0.3);
+}
+
+/* Utility Buttons */
+.btn {
+  background-color: #6e44ff;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn:hover {
+  background-color: #5b3ce6;
+  transform: translateY(-2px);
+}
+.btn-outline {
+  background-color: transparent;
+  color: #6e44ff;
+  border: 2px solid #6e44ff;
+}
+.btn-outline:hover {
+  background-color: #6e44ff;
+  color: white;
+}
+
+/* Section Container Utility */
+.section-container {
+  padding: 4rem 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .section-container {
+    padding: 2rem 1rem;
+  }
+}
+
+/* Grid Utility for Responsive Layouts */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Updated Footer Responsive Fix */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+footer p {
+  margin: 0.25rem 0;
+}
+@media (max-width: 768px) {
+  footer {
+    font-size: 0.8rem;
+    padding: 1rem;
+  }
+}
+
+/* Better Scroll Behavior for Touch Devices */
+html, body {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
+}
+
+/* Responsive Image Cards */
+.img-card {
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.img-card:hover {
+  transform: scale(1.02);
+}
+
+/* Tag Style or Badge */
+.tag {
+  display: inline-block;
+  background-color: #e5e7eb;
+  color: #111827;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  border-radius: 9999px;
+  margin: 0.25rem;
+}
+.dark .tag {
+  background-color: #334155;
+  color: #e0e7ff;
+}

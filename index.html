@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RT Express Technology</title>
@@ -9,67 +8,70 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-white transition-colors duration-300">
 
   <!-- Navbar -->
   <header class="bg-white/70 backdrop-blur-lg shadow-md sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-    <h1 class="text-2xl font-bold text-blue-600 tracking-wide hover:scale-105 transition-transform duration-300">RT EXPRESS <span class="text-gray-700">TECHNOLOGY</span></h1>
-  
-<!-- Dark Mode Toggle -->
-<div class="fixed bottom-3 right-12 z-50">
-  <button onclick="toggleDarkMode()" class="shadow-md transition duration-300">
-    <img id="themeIcon" src="https://cdn-icons-png.flaticon.com/512/1164/1164954.png" class="w-7 h-7" alt="Theme Toggle Icon" />
-  </button>
-</div>
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-blue-600 tracking-wide hover:scale-105 transition-transform duration-300">
+        RT EXPRESS <span class="text-gray-700">TECHNOLOGY</span>
+      </h1>
 
-    <!-- Mobile Hamburger Icon -->
-    <div class="md:hidden flex items-center" id="hamburgerIcon" onclick="toggleMenu()">
-      <button class="text-gray-700 hover:text-blue-600">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      <!-- Dark Mode Toggle -->
+      <div class="fixed bottom-3 right-12 z-50">
+        <button onclick="toggleDarkMode()" aria-label="Toggle Dark Mode" class="shadow-md transition duration-300">
+          <img id="themeIcon" src="https://cdn-icons-png.flaticon.com/512/1164/1164954.png" class="w-7 h-7" alt="Theme Toggle Icon" />
+        </button>
+      </div>
+
+      <!-- Hamburger Menu -->
+      <div class="md:hidden flex items-center" id="hamburgerIcon" onclick="toggleMenu()">
+        <button class="text-gray-700 hover:text-blue-600" aria-label="Toggle Navigation Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-8 text-base font-medium" role="navigation" aria-label="Main navigation">
+        <a href="#about" class="nav-link">ABOUT</a>
+        <a href="#services" class="nav-link">SERVICES</a>
+        <a href="#projects" class="nav-link">PROJECTS</a>
+        <a href="#founders" class="nav-link">FOUNDERS</a>
+        <a href="#testimonials" class="nav-link">TESTIMONIALS</a>
+        <a href="#clients" class="nav-link">CLIENTS</a>
+        <a href="#newsletter" class="nav-link">NEWSLETTER</a>
+        <a href="#contact" class="nav-link">CONTACT US</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="md:hidden fixed inset-0 bg-gray-800 bg-opacity-50 z-40 hidden" id="mobileMenuOverlay" onclick="toggleMenu()" aria-hidden="true"></div>
+
+  <!-- Mobile Navigation Menu -->
+  <aside class="md:hidden fixed top-0 right-0 w-64 h-full bg-white shadow-lg z-50 transform translate-x-full transition-transform" id="mobileMenu" role="menu">
+    <div class="p-4 flex justify-end">
+      <button onclick="toggleMenu()" class="text-gray-700" aria-label="Close Navigation Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
-    
-    <!-- Navigation Links -->
-    <nav class="hidden md:flex space-x-8 text-base font-medium">
-      <a href="#about" class="text-gray-700 hover:text-blue-600 transition duration-300">ABOUT</a>
-      <a href="#services" class="text-gray-700 hover:text-blue-600 transition duration-300">SERVICES</a>
-      <a href="#projects" class="text-gray-700 hover:text-blue-600 transition duration-300">PROJECTS</a>
-      <a href="#founders" class="text-gray-700 hover:text-blue-600 transition duration-300">FOUNDERS</a>
-      <a href="#testimonials" class="text-gray-700 hover:text-blue-600 transition duration-300">TESTIMONIALS</a>
-      <a href="#clients" class="text-gray-700 hover:text-blue-600 transition duration-300">CLIENTS</a>
-      <a href="#newsletter" class="text-gray-700 hover:text-blue-600 transition duration-300">NEWSLETTER</a>
-      <a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300">CONTACK US</a>
+    <nav class="flex flex-col space-y-6 p-4">
+      <a href="#about" class="nav-link">ABOUT</a>
+      <a href="#services" class="nav-link">SERVICES</a>
+      <a href="#projects" class="nav-link">PROJECTS</a>
+      <a href="#founders" class="nav-link">FOUNDERS</a>
+      <a href="#testimonials" class="nav-link">TESTIMONIALS</a>
+      <a href="#clients" class="nav-link">CLIENTS</a>
+      <a href="#newsletter" class="nav-link">NEWSLETTER</a>
+      <a href="#contact" class="nav-link">CONTACT US</a>
     </nav>
-  </div>
-</header>
-
-<!-- Mobile Menu (hidden by default) -->
-<div class="md:hidden fixed inset-0 bg-gray-800 bg-opacity-50 z-40 hidden" id="mobileMenuOverlay" onclick="toggleMenu()"></div>
-<div class="md:hidden fixed top-0 right-0 w-64 h-full bg-white shadow-lg z-50 transform translate-x-full transition-transform" id="mobileMenu">
-  <div class="p-4 flex justify-end">
-    <button onclick="toggleMenu()" class="text-gray-700">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
-    </button>
-  </div>
-  <nav class="flex flex-col space-y-6 p-4">
-    <a href="#about" class="text-gray-700 hover:text-blue-600 transition duration-300">ABOUT</a>
-    <a href="#services" class="text-gray-700 hover:text-blue-600 transition duration-300">SERVICES</a>
-    <a href="#projects" class="text-gray-700 hover:text-blue-600 transition duration-300">PROJECTS</a>
-    <a href="#founders" class="text-gray-700 hover:text-blue-600 transition duration-300">FOUNDERS</a>
-    <a href="#testimonials" class="text-gray-700 hover:text-blue-600 transition duration-300">TESTIMONIALS</a>
-    <a href="#clients" class="text-gray-700 hover:text-blue-600 transition duration-300">CLIENTS</a>
-    <a href="#newsletter" class="text-gray-700 hover:text-blue-600 transition duration-300">NEWSLETTER</a>
-    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300">CONTACT US</a>
-  </nav>
-</div>
-  </header>
+  </aside>
 
   <!-- Hero Section -->
 <section class="gradient text-white py-24 relative overflow-hidden">
@@ -175,7 +177,7 @@
 <!-- Projects Section -->
 <section id="projects" class="py-20 bg-gray-50">
   <div class="max-w-7xl mx-auto px-4">
-    <h3 class="text-4xl font-bold text-center mb-10">Featured Projects</h3>
+    <h3 class="text-4xl font-bold text-center mb-10">Featured and Current Projects</h3>
     <div class="grid md:grid-cols-3 gap-8">
 
       <!-- LibrarySys Project -->
@@ -186,7 +188,7 @@
             <p>Smart library system with barcode scanning and attendance tracking for students.</p>
           </div>
           <div class="flip-card-back bg-white p-6 rounded-2xl shadow flex items-center justify-center">
-            <img src="https://via.placeholder.com/250x150?text=LibrarySys+Image" alt="LibrarySys" class="rounded-xl">
+            <img src="/images/librarysys.jpg" alt="LibrarySys" class="rounded-xl">
           </div>
         </div>
       </div>
@@ -199,7 +201,7 @@
             <p>Waste management and city monitoring system powered by WiFi and sensors.</p>
           </div>
           <div class="flip-card-back bg-white p-6 rounded-2xl shadow flex items-center justify-center">
-            <img src="https://via.placeholder.com/250x150?text=WiFi+Connect+Image" alt="WiFi Connect" class="rounded-xl">
+            <img src="/images/wifi connect.jpg" alt="WiFi Connect" class="rounded-xl">
           </div>
         </div>
       </div>
@@ -212,7 +214,7 @@
             <p>Digital time-in/out tracker and scheduler designed for schools and academic use.</p>
           </div>
           <div class="flip-card-back bg-white p-6 rounded-2xl shadow flex items-center justify-center">
-            <img src="https://via.placeholder.com/250x150?text=AMATrack+Image" alt="AMATrack" class="rounded-xl">
+            <img src="/images/amatrack.jpeg" alt="AMATrack" class="rounded-xl">
           </div>
         </div>
       </div>
@@ -223,7 +225,7 @@
   <!-- Founders Section -->
   <section id="founders" class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 text-center">
-      <h3 class="text-4xl font-bold mb-10">Meet Our Founders</h3>
+      <h3 class="text-4xl font-bold mb-10">Meet Our Team</h3>
       <div class="flex flex-col md:flex-row justify-center items-center gap-10">
         <div class="bg-white shadow-lg rounded-2xl p-6 w-full max-w-sm">
           <img src="images/IMG_20250523_130120~2.jpg" alt="CEO Picture" class="w-32 h-32 mx-auto rounded-full shadow-md mb-4">
@@ -354,9 +356,9 @@
       <h3 class="text-4xl font-bold mb-6">Our Certifications</h3>
       <p class="mb-8 text-gray-600">Accredited by top industry organizations</p>
       <div class="flex flex-wrap justify-center gap-6">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/ISO_Logo.svg" alt="ISO" class="h-16" />
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Cisco_logo_blue_2016.svg" alt="Cisco" class="h-16" />
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/CompTIA_Logo.svg" alt="CompTIA" class="h-16" />
+        <img src="/images/iso.webp" alt="ISO" class="h-16" />
+        <img src="/images/cisco.jpg" alt="Cisco" class="h-16" />
+        <img src="/images/CompTIA-Network.jpg" alt="CompTIA" class="h-16" />
       </div>
     </div>
   </section>
@@ -382,11 +384,11 @@
     <h3 class="text-4xl font-bold mb-6">Get in Touch</h3>
     <p class="mb-6">Want to collaborate or have a project in mind? Let’s talk.</p>
     <div class="text-left text-lg space-y-2 mb-8">
-      <p><strong>Email:</strong> trstnjorge@gmail.com</p>
+      <p><strong>Email:</strong> rtexpresstechnology@gmail.com</p>
       <p><strong>Phone:</strong> +63 951 169 2537</p>
       <p><strong>Location:</strong> Lipa City, Batangas, Philippines</p>
     </div>
-    <form id="contactForm" action="https://formsubmit.co/ajax/trstnjorge@gmail.com" method="POST" class="space-y-4 text-left">
+    <form id="contactForm" action="https://formsubmit.co/ajax/rtexpresstechnology@gmail.com" method="POST" class="space-y-4 text-left">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
       <div>
