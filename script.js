@@ -171,6 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+  
 
   // === NEWSLETTER FORM ENHANCED ===
   const newsletterForm = document.getElementById('newsletterForm');
@@ -213,5 +214,23 @@ document.addEventListener("DOMContentLoaded", () => {
         newsBtn.textContent = 'Subscribe';
       }
     }
+  });
+});
+const toggleMenu = () => {
+  const mobileMenu = document.getElementById("mobileMenu");
+  const mobileOverlay = document.getElementById("mobileMenuOverlay");
+
+  mobileMenu.classList.toggle("translate-x-full");
+  mobileOverlay.classList.toggle("hidden");
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll("#mobileMenu nav a");
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      document.getElementById("mobileMenu").classList.add("translate-x-full");
+      document.getElementById("mobileMenuOverlay").classList.add("hidden");
+    });
   });
 });

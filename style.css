@@ -1,4 +1,4 @@
-/* General Reset and Layout */
+/* === General Reset and Layout === */
 html {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
@@ -18,21 +18,26 @@ textarea {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   letter-spacing: 0.03rem;
+  color: #1e293b;
+  background-color: #fff;
 }
 
-/* Navigation */
+/* === Navigation === */
 nav {
   display: flex;
   justify-content: space-between;
-  align-items: justify;
+  align-items: center;
   position: sticky;
   top: 0;
   z-index: 100;
+  background: #fff;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 nav .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #4f46e5;
+  color: #6e44ff;
 }
 nav ul {
   list-style: none;
@@ -59,11 +64,19 @@ nav ul li a::after {
   transition: transform 0.3s ease;
 }
 nav ul li a:hover {
-  color: #4f46e5;
+  color: #6e44ff;
 }
 nav ul li a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
+}
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #6e44ff;
+  cursor: pointer;
 }
 nav .menu-overlay {
   display: none;
@@ -72,14 +85,6 @@ nav .menu-overlay {
   width: 100%; height: 100vh;
   background: rgba(0, 0, 0, 0.7);
   z-index: 99;
-}
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #4f46e5;
-  cursor: pointer;
 }
 @media (max-width: 768px) {
   nav ul {
@@ -106,7 +111,7 @@ nav .menu-overlay {
   }
 }
 
-/* Hero Section */
+/* === Hero Section and Gradient Background === */
 @keyframes fadeInUp {
   from {
     transform: translateY(40px);
@@ -124,7 +129,7 @@ nav .menu-overlay {
   opacity: 0;
 }
 .hero-button {
-  background: #1e293b;
+  background: #6e44ff;
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
@@ -136,26 +141,23 @@ nav .menu-overlay {
   background: #4f46e5;
   transform: scale(1.05);
 }
-
-/* Gradient Background */
 .gradient {
-  background: linear-gradient(135deg, #1e1e2f, #4f46e5, #000000);
+  background: linear-gradient(135deg, #1e1e2f, #6e44ff, #000000);
   background-size: 200% 200%;
   animation: gradientShift 10s ease infinite;
   position: relative;
   overflow: hidden;
+  color: white;
 }
 @keyframes gradientShift {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
-.animated-lines,
-.stars-bg {
+.animated-lines, .stars-bg {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
   pointer-events: none;
-  z-index: 0;
 }
 .animated-lines { opacity: 0.25; }
 .stars-bg {
@@ -164,48 +166,36 @@ nav .menu-overlay {
   z-index: -1;
 }
 
-/* About Section */
+/* === About Section === */
 #about {
   background: #ffffff;
-  color: #1e293b;
 }
-.about-block,
-.reveal-left,
-.reveal-right {
+.about-block {
   padding: 2rem;
   margin-bottom: 2rem;
   border-radius: 1rem;
-  background: #f1f5f9;
+  background: #f3f0ff;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   text-align: left;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-.about-block:hover,
-.reveal-left:hover,
-.reveal-right:hover {
+.about-block:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
-.about-block h4,
-.reveal-left h4,
-.reveal-right h4 {
-  color: #4f46e5;
+.about-block h4 {
+  color: #6e44ff;
   font-size: 1.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
 }
-.about-block p,
-.about-block ul,
-.reveal-left p,
-.reveal-right p,
-.reveal-left ul,
-.reveal-right ul {
-  color: #64748b;
+.about-block p {
+  color: #475569;
   font-size: 1rem;
   line-height: 1.75rem;
 }
 
-/* Flip Card */
+/* === Flip Card === */
 .flip-card {
   perspective: 1000px;
   cursor: pointer;
@@ -227,13 +217,35 @@ nav .menu-overlay {
   width: 100%;
   height: 100%;
   border-radius: 1rem;
-  top: 0; left: 0;
 }
 .flip-card-back {
   transform: rotateY(180deg);
 }
+.flip-card-back,
+.flip-card-front,
+.testimonial-card,
+.testimonial-card:hover {
+  background-color: #f3f0ff; /* Light purple */
+  color: #1e293b;
+  border-left: 4px solid #6e44ff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 6px 20px rgba(110, 68, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.flip-card:hover,
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(110, 68, 255, 0.2);
+}
+.flip-card h4,
+.testimonial-card h4 {
+  color: #6e44ff;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
 
-/* Carousel */
+/* === Carousel === */
 .carousel-wrapper {
   overflow: hidden;
   width: 100%;
@@ -259,7 +271,7 @@ nav .menu-overlay {
   100% { transform: translateX(-50%); }
 }
 
-/* Scroll to Top */
+/* === Scroll to Top === */
 #scrollToTopBtn {
   position: fixed;
   bottom: 2rem;
@@ -268,7 +280,6 @@ nav .menu-overlay {
   color: white;
   padding: 0.75rem 1rem;
   border-radius: 9999px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   display: none;
   z-index: 1000;
   transition: transform 0.3s, opacity 0.3s;
@@ -277,28 +288,25 @@ nav .menu-overlay {
   transform: scale(1.1);
 }
 
-/* Footer */
+/* === Footer === */
 footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #0f172a;
+  background: linear-gradient(to right, #4f46e5, #6e44ff);
   color: white;
-  padding: 1rem;
-  font-size: 0.9rem;
   text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
 }
 footer p {
   margin: 0.25rem 0;
 }
+
 @media (max-width: 768px) {
   footer {
     font-size: 0.8rem;
   }
 }
 
-/* Form Styling */
+/* === Form Styling === */
 input, textarea, select {
   width: 100%;
   padding: 0.75rem;
@@ -315,7 +323,7 @@ input:focus, textarea:focus, select:focus {
   box-shadow: 0 0 0 2px rgba(110, 68, 255, 0.3);
 }
 
-/* Typography */
+/* === Typography === */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 1.25;
@@ -331,7 +339,7 @@ p {
   h3 { font-size: 1.25rem; }
 }
 
-/* Reveal Animations */
+/* === Reveal Animations === */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -342,28 +350,7 @@ p {
   transform: translateY(0);
 }
 
-/* Utilities */
-.btn {
-  background: #6e44ff;
-  color: white;
-  padding: 0.75rem 1.25rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  transition: background-color 0.3s, transform 0.2s;
-}
-.btn:hover {
-  background: #5b3ce6;
-  transform: translateY(-2px);
-}
-.btn-outline {
-  background: transparent;
-  color: #6e44ff;
-  border: 2px solid #6e44ff;
-}
-.btn-outline:hover {
-  background: #6e44ff;
-  color: white;
-}
+/* === Utilities === */
 .section-container {
   padding: 4rem 1.5rem;
   max-width: 1280px;
@@ -402,7 +389,7 @@ p {
   margin: 0.25rem;
 }
 
-/* Responsive Video */
+/* === Responsive Video === */
 .aspect-w-16.aspect-h-9 {
   position: relative;
   padding-bottom: 56.25%;
@@ -414,31 +401,13 @@ p {
   width: 100%; height: 100%;
 }
 
-/* Cards */
-.service-card,
-.testimonial-card {
-  background-color: white;
-  color: #1f2937;
-}
-@keyframes gradientBorder {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
+/* === Animated Border Cards === */
 .animated-border {
   position: relative;
   z-index: 0;
   overflow: hidden;
   border-radius: 1rem;
 }
-
 .animated-border::before {
   content: "";
   position: absolute;
@@ -447,13 +416,11 @@ p {
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: linear-gradient(270deg, #8e2de2, #4a00e0, #00c6ff, #ff6ec4);
+  background: linear-gradient(270deg, #8e2de2, #6e44ff, #4f46e5, #ff6ec4);
   background-size: 600% 600%;
   animation: gradientBorder 6s ease infinite;
   border-radius: inherit;
   padding: 2px;
-
-  /* Gradient border masking technique */
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   -webkit-mask-composite: destination-out;
@@ -462,31 +429,4 @@ p {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
-}
-
-.animated-border {
-  position: relative;
-  z-index: 0;
-  overflow: hidden;
-  border-radius: 1rem; /* Rounded corners */
-}
-
-.animated-border::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(270deg, #8e2de2, #4a00e0, #00c6ff, #ff6ec4);
-  background-size: 600% 600%;
-  animation: gradientBorder 6s ease infinite;
-  border-radius: inherit;
-  padding: 2px;
-  mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  -webkit-mask-composite: destination-out;
 }
