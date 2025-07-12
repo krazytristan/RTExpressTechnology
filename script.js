@@ -1,5 +1,5 @@
-// === TYPING TEXT EFFECT FOR HERO SECTION ===
 document.addEventListener("DOMContentLoaded", () => {
+  // === TYPING TEXT EFFECT FOR HERO SECTION ===
   const typingText = document.getElementById("typingText");
   if (typingText) {
     const techWords = ["Web", "App", "AI", "Cloud", "IoT", "Innovation"];
@@ -64,9 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.addEventListener("scroll", checkImpactVisibility);
-  checkImpactVisibility(); // run on load too
+  checkImpactVisibility();
 
-  // === SCROLL REVEAL FOR CLASS "reveal" ===
+  // === SCROLL REVEAL ===
   const revealElements = document.querySelectorAll(".reveal");
   function revealOnScroll() {
     revealElements.forEach((el) => {
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", revealOnScroll);
   revealOnScroll();
 
-  // === SCROLL REVEAL ENHANCED ===
+  // === ScrollReveal Integration ===
   if (typeof ScrollReveal !== "undefined") {
     ScrollReveal({ reset: true });
 
@@ -129,7 +129,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // === CONTACT FORM ENHANCED ===
+  // === CLOSE MOBILE MENU ON LINK CLICK ===
+  const navLinks = document.querySelectorAll("#mobileMenu nav a");
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      document.getElementById("mobileMenu").classList.add("translate-x-full");
+      document.getElementById("mobileMenuOverlay").classList.add("hidden");
+      document.body.style.overflow = '';
+    });
+  });
+
+  // === CONTACT FORM HANDLER ===
   const contactForm = document.getElementById('contactForm');
   const contactSuccess = document.getElementById('formSuccess');
   const contactError = document.getElementById('formError');
@@ -171,9 +181,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
-  
 
-  // === NEWSLETTER FORM ENHANCED ===
+  // === NEWSLETTER FORM HANDLER ===
   const newsletterForm = document.getElementById('newsletterForm');
   const newsSuccess = document.getElementById('newsletterSuccess');
   const newsError = document.getElementById('newsletterError');
@@ -214,23 +223,5 @@ document.addEventListener("DOMContentLoaded", () => {
         newsBtn.textContent = 'Subscribe';
       }
     }
-  });
-});
-const toggleMenu = () => {
-  const mobileMenu = document.getElementById("mobileMenu");
-  const mobileOverlay = document.getElementById("mobileMenuOverlay");
-
-  mobileMenu.classList.toggle("translate-x-full");
-  mobileOverlay.classList.toggle("hidden");
-};
-
-document.addEventListener("DOMContentLoaded", () => {
-  const navLinks = document.querySelectorAll("#mobileMenu nav a");
-
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      document.getElementById("mobileMenu").classList.add("translate-x-full");
-      document.getElementById("mobileMenuOverlay").classList.add("hidden");
-    });
   });
 });
