@@ -225,3 +225,82 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+// Navbar mobile menu toggle
+function toggleMenu() {
+  const mobileMenu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('mobileMenuOverlay');
+  mobileMenu.classList.toggle('translate-x-full');
+  overlay.classList.toggle('hidden');
+}
+
+// Typing animation in hero section
+const texts = ['Innovate.', 'Integrate.', 'Inspire.'];
+let count = 0;
+let index = 0;
+let currentText = '';
+let letter = '';
+
+(function type() {
+  if (count === texts.length) count = 0;
+  currentText = texts[count];
+  letter = currentText.slice(0, ++index);
+
+  document.getElementById('typingText').textContent = letter;
+  if (letter.length === currentText.length) {
+    setTimeout(() => {
+      index = 0;
+      count++;
+      type();
+    }, 2000);
+  } else {
+    setTimeout(type, 150);
+  }
+})();
+
+// Counter Animation
+const counters = document.querySelectorAll('.counter');
+const speed = 200;
+
+const animateCounter = () => {
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+
+      const inc = target / speed;
+
+      if (count < target) {
+        counter.innerText = Math.ceil(count + inc);
+        setTimeout(updateCount, 30);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCount();
+  });
+};
+
+window.addEventListener('scroll', () => {
+  const impactSection = document.getElementById('impact');
+  const position = impactSection.getBoundingClientRect().top;
+  const screenPosition = window.innerHeight / 1.2;
+
+  if (position < screenPosition) {
+    animateCounter();
+  }
+});
+
+// ScrollReveal Animations
+ScrollReveal().reveal('.reveal-left', {
+  origin: 'left',
+  distance: '50px',
+  duration: 800,
+  easing: 'ease-in-out',
+});
+
+ScrollReveal().reveal('.reveal-right', {
+  origin: 'right',
+  distance: '50px',
+  duration: 800,
+  easing: 'ease-in-out',
+});

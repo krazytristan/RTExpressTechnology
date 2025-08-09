@@ -430,3 +430,91 @@ p {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+/* General resets and smooth scroll */
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  letter-spacing: 0.03rem;
+}
+
+/* Animated Border */
+.animated-border {
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.animated-border:hover {
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.7);
+}
+
+/* Flip Card */
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.group:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Counter Animation */
+.counter-box {
+  transition: transform 0.3s;
+}
+
+.counter-box:hover {
+  transform: scale(1.05);
+}
+
+/* Carousel */
+.carousel-wrapper {
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  animation: scrollCarousel 25s linear infinite;
+}
+
+.carousel-track img {
+  height: 50px;
+}
+
+@keyframes scrollCarousel {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Glassmorphism effect for Hero Section */
+.glassmorphism {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Additional customizations */
