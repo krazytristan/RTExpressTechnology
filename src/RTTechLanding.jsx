@@ -304,7 +304,7 @@ export default function RTTechLanding() {
             </div>
           </div>
           <div className="hidden md:block">
-            <img src="/images/BSU_6102.jpg" alt="Hero visual" loading="lazy" className="rounded-3xl shadow-2xl object-cover h-[420px] w-full" />
+            <img src="/public/hero.png" alt="Hero visual" loading="lazy" className="rounded-3xl shadow-2xl object-cover h-[420px] w-full" />
           </div>
         </div>
       </section>
@@ -372,9 +372,9 @@ export default function RTTechLanding() {
       <Section id="founders" title="Meet Our Team" tone="alt">
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            { name: "TRISTAN JORGE CUARTERO", role: "Founder & CEO", img: "/images/BSU_6102.jpg", desc: "Visionary leader & technology strategist passionate about digital innovation." },
-            { name: "RODOLFO C. GUCE III", role: "Co-Founder", img: "/images/profile.jpg", desc: "System architect focused on seamless UX and front-end technologies." },
-            { name: "RICKY D. DOLOR", role: "Designer / CTO", img: "/images/pic.jpg", desc: "Layout & design specialist." },
+            { name: "TRISTAN JORGE CUARTERO", role: "Founder & CEO", img: "/public/BSU_6102.jpg", desc: "Visionary leader & technology strategist passionate about digital innovation." },
+            { name: "RODOLFO C. GUCE III", role: "Co-Founder", img: "/public/profile.jpg", desc: "System architect focused on seamless UX and front-end technologies." },
+            { name: "RICKY D. DOLOR", role: "Designer / CTO", img: "/public/pic.jpg", desc: "Layout & design specialist." },
           ].map((m, idx) => (
             <TiltCard key={m.name} delay={idx * 60}>
               <img src={m.img} alt={m.name} loading="lazy" className="w-28 h-28 mx-auto rounded-full object-cover shadow mb-4" />
@@ -426,10 +426,10 @@ export default function RTTechLanding() {
       <Section id="impact" title="Our Impact" tone="alt">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {[
-            { target: 120, label: "Projects Completed" },
-            { target: 95,  label: "Happy Clients" },
-            { target: 8,   label: "Years Experience" },
-            { target: 2,   label: "Team Members" },
+            { target: 5, label: "Projects Completed" },
+            { target: 25,  label: "Happy Clients" },
+            { target: 1,   label: "Years Experience" },
+            { target: 3,   label: "Team Members" },
           ].map((b, i) => (
             <GlassCard key={b.label}>
               <h4
