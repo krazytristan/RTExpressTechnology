@@ -183,8 +183,8 @@ export default function RTTechLanding() {
               <a href="#home" className="group inline-flex items-center gap-2">
                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow">RT</span>
                 <span className="text-xl font-extrabold tracking-wide">
-                  <span className="text-indigo-700 dark:text-indigo-300">RT</span>{" "}
-                  <span className="text-gray-700 dark:text-gray-200">TECH</span>
+                  <span className="text-indigo-700 dark:text-indigo-300">RT EXPRESS</span>{" "}
+                  <span className="text-gray-700 dark:text-gray-200">TECHNOLOGY</span>
                 </span>
               </a>
 
@@ -292,7 +292,7 @@ export default function RTTechLanding() {
               <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" /> Innovate • Build • Scale
             </p>
             <h1 className="mt-3 text-4xl md:text-5xl font-extrabold leading-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-indigo-200">Welcome to RT Tech</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-indigo-200">Welcome to RT Technology</span>
             </h1>
             <p className="mt-3 text-xl text-white/90 h-8">
               <span ref={typeRef} className={!prefersReduced ? "border-r-2 border-white pr-1 animate-[blink_1s_steps(1)_infinite]" : ""} />
