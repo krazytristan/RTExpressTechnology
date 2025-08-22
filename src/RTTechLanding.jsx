@@ -372,15 +372,68 @@ export default function RTTechLanding() {
       <Section id="founders" title="Meet Our Team" tone="alt">
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            { name: "TRISTAN JORGE CUARTERO", role: "Founder / CTO", img: "/images/BSU_6102.jpg", desc: "Visionary leader & technology strategist passionate about digital innovation." },
-            { name: "RODOLFO C. GUCE III", role: "Co-Founder / CTO", img: "/images/dither.jpg", desc: "System architect focused on seamless UX and front-end technologies." },
-            { name: "RICKY D. DOLOR", role: "Designer / CTO", img: "/images/pic.jpg", desc: "Layout & design specialist." },
+            { 
+              name: "TRISTAN JORGE CUARTERO", 
+              role: "Founder / CTO", 
+              img: "/images/BSU_6102.jpg", 
+              desc: "Visionary leader & technology strategist passionate about digital innovation.",
+              portfolio: "https://my-personal-portfolio-weld-xi.vercel.app/",
+              email: "trstnjorge@gmail.com",
+              phone: "09511692537"
+            },
+            { 
+              name: "RODOLFO C. GUCE III", 
+              role: "Co-Founder / CTO", 
+              img: "/images/dither.jpg", 
+              desc: "System architect focused on seamless UX and front-end technologies.",
+              portfolio: "https://ratbu123.github.io/Portfolio/",
+              email: "gucediter03@gmail.com",
+              phone: "09636796878"
+            },
+            { 
+              name: "RICKY D. DOLOR", 
+              role: "Designer / CTO", 
+              img: "/images/pic.jpg", 
+              desc: "Layout & design specialist.",
+              portfolio: "https://feitan12.github.io/portfolioo/",
+              email: "dolorricky7@gmail.com",
+              phone: "09464407168"
+            },
           ].map((m, idx) => (
             <TiltCard key={m.name} delay={idx * 60}>
-              <img src={m.img} alt={m.name} loading="lazy" className="w-28 h-28 mx-auto rounded-full object-cover shadow mb-4" />
+              <img 
+                src={m.img} 
+                alt={m.name} 
+                loading="lazy" 
+                className="w-28 h-28 mx-auto rounded-full object-cover shadow mb-4" 
+              />
               <h4 className="text-xl font-semibold">{m.name}</h4>
               <p className="text-indigo-600 dark:text-indigo-400 font-medium">{m.role}</p>
               <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{m.desc}</p>
+
+              {/* Contact Info */}
+              <div className="mt-4 space-y-2 text-sm">
+                <a 
+                  href={m.portfolio} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="block text-indigo-500 hover:text-indigo-700"
+                >
+                  🌐 Portfolio
+                </a>
+                <a 
+                  href={`mailto:${m.email}`} 
+                  className="block text-gray-700 dark:text-gray-300 hover:text-indigo-500"
+                >
+                  ✉ {m.email}
+                </a>
+                <a 
+                  href={`tel:${m.phone}`} 
+                  className="block text-gray-700 dark:text-gray-300 hover:text-indigo-500"
+                >
+                  ☎ {m.phone}
+                </a>
+              </div>
             </TiltCard>
           ))}
         </div>
