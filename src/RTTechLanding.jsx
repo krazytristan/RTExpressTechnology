@@ -372,8 +372,8 @@ export default function RTTechLanding() {
       <Section id="founders" title="Meet Our Team" tone="alt">
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            { name: "TRISTAN JORGE CUARTERO", role: "Founder & CEO", img: "/images/BSU_6102.jpg", desc: "Visionary leader & technology strategist passionate about digital innovation." },
-            { name: "RODOLFO C. GUCE III", role: "Co-Founder", img: "/images/profile.jpg", desc: "System architect focused on seamless UX and front-end technologies." },
+            { name: "TRISTAN JORGE CUARTERO", role: "Founder / CTO", img: "/images/BSU_6102.jpg", desc: "Visionary leader & technology strategist passionate about digital innovation." },
+            { name: "RODOLFO C. GUCE III", role: "Co-Founder / CTO", img: "/images/dither.jpg", desc: "System architect focused on seamless UX and front-end technologies." },
             { name: "RICKY D. DOLOR", role: "Designer / CTO", img: "/images/pic.jpg", desc: "Layout & design specialist." },
           ].map((m, idx) => (
             <TiltCard key={m.name} delay={idx * 60}>
